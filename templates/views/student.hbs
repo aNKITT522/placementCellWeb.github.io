@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    {{>secheader}}
+    {{>navHeader}}
+<div id="studentUi">
+     <button id="showFormButton">Add Student</button>
+
+    <div id="formContainer" style="display: none;">
+        <form action="/login/placementCell/student/addStudent" method="POST">
+            <!-- Add your form fields here -->
+        <label for="batch">Batch (capital letter):</label>
+        <input type="text" id="batch" name="batch" required pattern="[A-Z]" maxlength="1"><br>
+
+        <label for="name">Name*:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="placed">Placed :</label>
+        <select name="placed" id="placed">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+        <br>
+{{!-- score --}}
+    <h2>Scores:</h2>
+    {{!-- 1 --}}
+       <label for="course1">course</label>
+        <select id="course1" name="scores[0][course]" required>
+           <option value="DSA">DSA</option>
+            <option value="WEB DEVELOPMENT">WEB DEVELOPMENT</option>
+            <option value="REACT">REACT</option>
+        </select>
+        <label for="score1">Score :</label>
+        <input type="number" id="score1" name="scores[0][score]" required><br>
+
+{{!-- 2 --}}
+      <label for="course2">course</label>
+        <select id="course2" name="scores[1][course]" required>
+            <option value="DSA">DSA</option>
+            <option value="WEB DEVELOPMENT">WEB DEVELOPMENT</option>
+            <option value="REACT">REACT</option>
+        </select>
+        <label for="score2">Score :</label>
+        <input type="number" id="score2" name="scores[1][score]" required><br>
+
+        {{!-- 3 --}}
+        <label for="course3">course</label>
+        <select id="course3" name="scores[2][course]" required>
+            <option value="DSA">DSA</option>
+            <option value="WEB DEVELOPMENT">WEB DEVELOPMENT</option>
+            <option value="REACT">REACT</option>
+        </select>
+        <label for="score3">Score :</label>
+        <input type="number" id="score3" name="scores[2][score]" required><br>
+        
+
+        <!-- You can add more courses and scores fields as needed -->
+{{!-- interviews --}}
+        <h2>Interviews:</h2>
+        <label for="company1">Company :</label>
+        <input type="text" id="company1" name="interviews[0][company]" maxlength="50" minlength="2"><br>
+        <label for="date1">Date :</label>
+        <input type="date" id="date1" name="interviews[0][date]" required><br><br>
+
+        <!-- You can add more interviews fields as needed -->
+
+        <label for="resultStatus">Status:</label>
+        <select id="resultStatus" name="resultStatus" required>
+            <option value="pass">Pass</option>
+            <option value="fail">Fail</option>
+            <option value="onHold">On Hold</option>
+            <option value="not attempted">Not Attempted</option>
+        </select><br>
+
+        <input type="submit" value="Submit">
+        </form>
+
+       
+    </div>
+
+     {{#if formSubmitted}}
+    <p class="success-message">data saved successfully!</p>
+  {{/if}}
+
+  <div id="showStudent" >
+
+
+  </div>
+    </div>
+    <script src="/script.js"></script>
+</body>
+</html>

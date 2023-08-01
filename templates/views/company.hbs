@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+     {{>secheader}}
+    {{>navHeader}}
+
+  <div id="companyUi">
+  <!-- Form to add a new interview with date -->
+  
+  <div id="interviewForm">
+    <h2>Add Interview</h2>
+  <form method="POST" action="/login/placementCell/company/addInterview">
+  <label for="companyName">Company :</label>
+  <input type="text" name="companyName" required><br>
+    <label for="title">Interview Title:</label>
+    <input type="text" name="title" required><br>
+    <label for="date">Interview Date:</label>
+    <input type="date" name="date" required><br>
+    <button type="submit">Add Interview</button>
+  </form>
+  {{#if formSubmitted}}
+    <p class="success-message">Interview created successfully!</p>
+  {{/if}}
+  </div>
+<div id="showInterviews">
+        <div id="addStudentForm" style="display:none;">
+          <form id="allotStudentForm" method="POST" action="/login/placementCell/company/allotStudent/:id">
+            <label for="Name">Name:</label>
+            <input type="text" name="Name" required><br>
+            <label for="Batch">Batch:</label>
+            <input type="text" name="Batch" required><br>
+            <label for="Email">Email:</label>
+            <input type="email" name="Email" required><br>
+            <button type="submit">Add Student</button>
+          </form>
+        </div>
+</div>
+
+</div>
+    
+
+    <script src="/interviewScript.js" ></script>
+    
+</body>
+</html>
