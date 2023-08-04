@@ -5,3 +5,5 @@ mongoose.connect(db).then(()=>{
 }).catch((err)=>{
     console.log(`no connection`,err);
 })
+
+module.exports = {mongoose}
