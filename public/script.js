@@ -2,6 +2,11 @@ const showFormButton = document.getElementById('showFormButton'); //add student 
 const formContainer = document.getElementById('formContainer'); // display student form container
 const showStudent = document.getElementById('showStudent'); // a blank div having only id 
 
+// Set the backend server URL based on the environment
+// const backendURL = process.env.NODE_ENV === 'production'
+//   ? 'https://placement-cell-755affa319ca.herokuapp.com'
+//   : 'http://localhost:3000';
+
 // showFormButton.addEventListener('click', () => {
   
 //     formContainer.style.display = 'block'; // form will display
@@ -18,7 +23,7 @@ function toggleFormDisplay() {
 // taking student data from student db which fill through path given 
 async function fetchStudents(){
     try {
-        const response = await fetch('http://localhost:3000/login/placementCell/student/addStudent'); // student data form path 
+        const response = await fetch(`/login/placementCell/student/addStudent`); // student data form path 
         const data = await response.json(); // taking all student data from db
         return data;
     } catch (error) {
@@ -113,7 +118,7 @@ async function renderStudents() {
 
           // Make a request to the backend to delete the student from the database
           try {
-            const response = await fetch(`http://localhost:3000/login/placementCell/student/delete/${student._id}`, {
+            const response = await fetch(`/login/placementCell/student/delete/${student._id}`, {
               method: 'DELETE',
             });
             const data = await response.json();

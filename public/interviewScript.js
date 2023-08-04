@@ -3,7 +3,7 @@ const showInterview = document.getElementById("showInterviews");
 
 async function fetchInterviews(){
     try {
-        const response = await fetch('http://localhost:3000/login/placementCell/company/addInterview');
+        const response = await fetch('/login/placementCell/company/addInterview');
         const data = await response.json();
         console.log(data);
         return data;
@@ -79,7 +79,7 @@ async function renderStudents() {
 
         //   // Make a request to the backend to delete the student from the database
           try {
-            const response = await fetch(`http://localhost:3000/login/placementCell/company/deleteinterview/${interview._id}`, {
+            const response = await fetch(`/login/placementCell/company/deleteinterview/${interview._id}`, {
               method: 'DELETE',
             });
             const data = await response.json();

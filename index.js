@@ -26,10 +26,7 @@ const PORT = process.env.PORT;
 require("./model/dbConn");
 
 //middleware
-server.use(cors({
-  origin: 'https://placement-cell-755affa319ca.herokuapp.com',
-  optionsSuccessStatus: 200
-}));
+server.use(cors());
 
 // Set up express-session middleware
 server.set('trust proxy', 1) // trust first proxy
