@@ -27,7 +27,7 @@ require("./model/dbConn");
 
 //middleware
 server.use(cors({
-  origin: 'https://placement-cell-755affa319ca.herokuapp.com/',
+  origin: 'https://placement-cell-755affa319ca.herokuapp.com',
   optionsSuccessStatus: 200
 }));
 
